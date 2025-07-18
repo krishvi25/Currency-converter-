@@ -11,7 +11,7 @@ void main() {
     @override
     Widget build(BuildContext context)
     {return const MaterialApp(
-      home: currancy(),
+      home: Currancyy(),
     );
     }
   }
