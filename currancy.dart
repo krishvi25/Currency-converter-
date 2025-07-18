@@ -1,13 +1,33 @@
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
-class currancy extends StatelessWidget {
-  const currancy({super.key});
+class Currancyy extends StatefulWidget {
+  const Currancyy({super.key});
+  @override
+  State<Currancyy> createState() => Currancystate();
+}
+
+class Currancystate extends State<Currancyy> {
+  double result = 0;
+  final TextEditingController textEditingController = TextEditingController();
+
+  void convert() {
+    result = double.parse(textEditingController.text) * 81;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    double result = 0.0;
-    final TextEditingController textEditingController = TextEditingController();
     final border = OutlineInputBorder(
       borderSide: BorderSide(color: Colors.red, width: 2.0),
       borderRadius: BorderRadius.all(Radius.circular(100)),
@@ -29,7 +49,7 @@ class currancy extends StatelessWidget {
               margin: const EdgeInsets.all(10),
               color: Colors.lightGreenAccent,
               child: Text(
-                result.toString(),
+                'INR ${result.toStringAsFixed(2)}',
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
@@ -59,12 +79,9 @@ class currancy extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(20),
-              child: TextButton(
-                onPressed: () {
-                 
-                
-                  result = double.parse(textEditingController.text) * 81;
-                },
+              child: ElevatedButton(
+                onPressed: convert,
+
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.deepOrangeAccent,
                   foregroundColor: Colors.yellowAccent,
@@ -82,3 +99,6 @@ class currancy extends StatelessWidget {
     );
   }
 }
+
+
+
